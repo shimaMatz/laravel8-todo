@@ -10,6 +10,18 @@
 </head>
 <body>
 
+<style>
+    .form {
+        display: none;
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .form-group {
+        padding-bottom: 50px;
+    }
+</style>
+
 <h1>タスク一覧画面</h1>
     
 <div class="container">
@@ -28,9 +40,13 @@
             <tr>
                 <td>{{ $task->name }}</td>
                 <td>
-                <a href="{{ route('tasks.show', ['id' => $task->id]) }}">詳細</a>
-                <a href="{{ route('tasks.edit', ['id' => $task->id]) }}">編集</a>
-                <a href="">削除</a>
+                <form class="form-inline" action="{{ route('tasks.delete', ['id' => $task->id]) }}" method="POST" name="deleteForm">
+                <a class="btn btn-outline-primary mb-3" href="{{ route('tasks.show', ['id' => $task->id]) }}" role="button">詳細</a>
+                <a class="btn btn-outline-primary mb-3" href="{{ route('tasks.edit', ['id' => $task->id]) }}" role="button">編集</a>
+                
+                @csrf
+                    <button type="submit" class="btn btn-danger mb-3">削除</button>
+                </form>
                 </td>
             </tr>
             @endforeach
