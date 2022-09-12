@@ -39,7 +39,7 @@
             <a href="/">戻る</a>
         </div>
         <div class="link__edit">
-            <a href="">編集する</a>
+            <a href="{{ route('tasks.edit', ['id' => $task->id]) }}">編集</a>
         </div>
         <div class="link__delete">
             <a href="">削除する</a>
