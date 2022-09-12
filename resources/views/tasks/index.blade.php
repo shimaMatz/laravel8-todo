@@ -13,6 +13,9 @@
 <h1>タスク一覧画面</h1>
     
 <div class="container">
+    <div class="task__add">
+        <a href="{{ route('tasks.add') }}">＋タスクを追加する</a>
+    </div>
     <table class="table table-hover">
         <thead>
             <tr>
