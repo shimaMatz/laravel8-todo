@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task;
+use App\Http\Requests\TasksRequest; 
+
 
 class TasksController extends Controller
 {
@@ -27,7 +29,7 @@ class TasksController extends Controller
         /**
      * タスク追加-DBに値を入れる処理
      */
-    public function store(Request $request)
+    public function store(TasksRequest $request)
     {
         // tasksテーブルにフォームで入力した値を挿入する
         $result = Task::create([

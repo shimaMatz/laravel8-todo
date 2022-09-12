@@ -37,6 +37,14 @@
 <body>
 
 <h1>タスク追加</h1>
+
+<div class="error">
+    @foreach ($errors->all() as $error)
+    <div class="alert alert-danger" role="alert">
+        {{$error}}
+    </div>
+    @endforeach
+</div>
     
 <form action="{{ route('tasks.store') }}" method="POST" class="form">
 @csrf
